@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] MovementController movement;
     [SerializeField] GunController gunController;
+    [SerializeField] LaserController laserController;
 
     void Update()
     {
@@ -14,6 +15,10 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             gunController.Shoot();
+        }
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            laserController.Shoot();
         }
     }
 }

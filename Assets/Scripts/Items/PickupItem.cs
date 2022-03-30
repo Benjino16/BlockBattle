@@ -6,7 +6,8 @@ public class PickupItem : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        //Condition for picking up Item
+        if(collision.CompareTag("Player"))
         {
             PickUp(collision.gameObject);
         }
