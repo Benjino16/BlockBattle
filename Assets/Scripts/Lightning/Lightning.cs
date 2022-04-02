@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Lightning : MonoBehaviour
@@ -24,11 +22,11 @@ public class Lightning : MonoBehaviour
     private void Update()
     {
         timer -= Time.deltaTime;
-        if(timer <= 0f && !strike)
+        if (timer <= 0f && !strike)
         {
             Strike();
         }
-        if(timer <= -destroyTime)
+        if (timer <= -destroyTime)
         {
             Debug.Log("Destroy lightning...");
             Destroy(gameObject);
@@ -45,7 +43,7 @@ public class Lightning : MonoBehaviour
 
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, radius))
         {
-            if(collider.GetComponent<Health>() != null)
+            if (collider.GetComponent<Health>() != null)
             {
                 collider.GetComponent<Health>().Damage(damage, sender);
             }

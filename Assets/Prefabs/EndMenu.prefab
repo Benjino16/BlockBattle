@@ -199,7 +199,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Main Menu
+  m_Text: Back to hub
 --- !u!1 &4779897757880174488
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next Level
+  m_Text: Retry Level
 --- !u!1 &4779897758001138769
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 4779897758168455544}
   - component: {fileID: 4779897758168455431}
   m_Layer: 5
-  m_Name: NextLevel Button
+  m_Name: Retry Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -795,8 +795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winMenu: {fileID: 4779897759666769039}
   loseMenu: {fileID: 4779897759445227178}
-  nextLevelButton: {fileID: 4779897758168455431}
-  retryButton: {fileID: 4779897758565654217}
+  retryButtonWin: {fileID: 4779897758168455431}
+  retryButtonLose: {fileID: 4779897758565654217}
   winMainMenu: {fileID: 6673963397292311285}
   loseMainMenu: {fileID: 108208083719847283}
 --- !u!1 &4779897759406394844
@@ -1046,7 +1046,7 @@ GameObject:
   - component: {fileID: 5422166045474965708}
   - component: {fileID: 6673963397292311285}
   m_Layer: 5
-  m_Name: MainMenu Button
+  m_Name: Back to Hub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

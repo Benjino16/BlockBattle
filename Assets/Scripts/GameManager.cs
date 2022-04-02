@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public int coins = 0;
-    public int level = 1;
+    [SerializeField] int currentLevel = 1;
+    public int bestLevel = 1;
     public int maxLevel = 1;
 
     public GameState gameState;
@@ -26,33 +25,41 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
     }
-
-    public void NextLevel()
+    public void LoadLevel(int Level)
     {
-        SceneManager.LoadScene("Level" + level);
+        if (Level > bestLevel)
+        {
+            Level = bestLevel;
+        }
+        currentLevel = Level;
+        SceneManager.LoadScene("Level" + Level);
         gameState = GameState.battle;
-
-
-        //Mit diesem Weg kann das UI und andere elemente mehrfach geladen werden!
-        /*
-        SceneManager.LoadScene("leaderboard");
-        SceneManager.LoadScene("menu", LoadSceneMode.Additive);
-        */
+        SceneManager.LoadScene("GameUI", LoadSceneMode.Additive);
     }
 
-    public void LoadMainMenu()
+    public void LoadHubWorld()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("HubWorld");
+    }
+
+    public void RetryLevel()
+    {
+        LoadLevel(currentLevel);
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("HubWorld");
     }
 
     public void EndGame(bool playerWin)
     {
-        if(playerWin)
+        if (playerWin)
         {
-            level += 1;
-            if(level > maxLevel)
+            bestLevel += 1;
+            if (bestLevel > maxLevel)
             {
-                level = maxLevel;
+                bestLevel = maxLevel;
                 //All levels complete
                 Debug.Log("Completed the game");
             }

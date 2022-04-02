@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -18,7 +16,7 @@ public class GunController : MonoBehaviour
 
     public void Shoot()
     {
-        if(waitingTime > shootingSpeed)
+        if (waitingTime > shootingSpeed)
         {
             Bullet newBullet = Instantiate(bullet, transform.position, transform.rotation);
             newBullet.sender = gunOwner;

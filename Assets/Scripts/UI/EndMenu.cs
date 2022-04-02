@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,27 +6,27 @@ public class EndMenu : MonoBehaviour
 
     [SerializeField] GameObject winMenu;
     [SerializeField] GameObject loseMenu;
-    [SerializeField] Button nextLevelButton;
-    [SerializeField] Button retryButton;
+    [SerializeField] Button retryButtonWin;
+    [SerializeField] Button retryButtonLose;
     [SerializeField] Button winMainMenu;
     [SerializeField] Button loseMainMenu;
 
     private void Awake()
     {
-        
+
     }
 
     public void ShowWinMenu()
     {
         winMenu.SetActive(true);
-        nextLevelButton.onClick.AddListener(GameManager.Instance.NextLevel);
-        winMainMenu.onClick.AddListener(GameManager.Instance.LoadMainMenu);
+        retryButtonWin.onClick.AddListener(GameManager.Instance.RetryLevel);
+        winMainMenu.onClick.AddListener(GameManager.Instance.LoadHubWorld);
     }
 
     public void ShowLoseMenu()
     {
         loseMenu.SetActive(true);
-        retryButton.onClick.AddListener(GameManager.Instance.NextLevel);
-        loseMainMenu.onClick.AddListener(GameManager.Instance.LoadMainMenu);
+        retryButtonLose.onClick.AddListener(GameManager.Instance.RetryLevel);
+        loseMainMenu.onClick.AddListener(GameManager.Instance.LoadHubWorld);
     }
 }

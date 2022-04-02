@@ -45,3 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 0
   level: 1
+  maxLevel: 2
+  gameState: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -12,7 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] Rigidbody2D knockbackRB;
     [SerializeField] float knockback;
 
-    
+
     bool immortal = false;
 
     public void Heal(float value)
@@ -35,7 +33,7 @@ public class Health : MonoBehaviour
 
     public void Damage(float value, GameObject attacker, Vector2? direction = null)
     {
-        if(!immortal)
+        if (!immortal)
         {
             shield -= value;
             if (shield < 0)
@@ -60,7 +58,7 @@ public class Health : MonoBehaviour
 
     private void Immortal(bool status)
     {
-        if(status != immortal)
+        if (status != immortal)
         {
             if (status)
             {
@@ -83,7 +81,7 @@ public class Health : MonoBehaviour
 
     private void Die(GameObject attacker)
     {
-        if(CompareTag("Player"))
+        if (CompareTag("Player"))
         {
             GameManager.Instance.EndGame(false);
         }
@@ -92,7 +90,7 @@ public class Health : MonoBehaviour
             GameManager.Instance.EndGame(true);
         }
 
-        if(attacker == null)
+        if (attacker == null)
         {
             attacker = new GameObject { name = "destroyed gameobject" };
         }
@@ -103,7 +101,7 @@ public class Health : MonoBehaviour
     private void Update()
     {
         immortalTimer -= Time.deltaTime;
-        if(immortalTimer > 0f)
+        if (immortalTimer > 0f)
         {
             Immortal(true);
         }

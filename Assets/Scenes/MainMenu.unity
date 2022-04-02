@@ -446,7 +446,6 @@ RectTransform:
   - {fileID: 1246692286}
   - {fileID: 1293931981}
   - {fileID: 1142927690}
-  - {fileID: 1280815262}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -467,9 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebed604ecaee8994aa4b6cc71568833e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainButtonText: {fileID: 1789893113}
-  coinDisplayText: {fileID: 1280815263}
-  nextLevelButton: {fileID: 0}
+  coinDisplayText: {fileID: 0}
 --- !u!1001 &555289003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -745,7 +742,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 436477854}
         m_TargetAssemblyTypeName: MainUI, Assembly-CSharp
-        m_MethodName: NextLevel
+        m_MethodName: StartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -792,85 +789,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246692285}
-  m_CullTransparentMesh: 1
---- !u!1 &1280815261
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1280815262}
-  - component: {fileID: 1280815264}
-  - component: {fileID: 1280815263}
-  m_Layer: 5
-  m_Name: CoinDisplayText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1280815262
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280815261}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 436477853}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -299, y: 171}
-  m_SizeDelta: {x: 249.0454, y: 39.3033}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1280815263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280815261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: COIN DISPLAY
---- !u!222 &1280815264
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1280815261}
   m_CullTransparentMesh: 1
 --- !u!1 &1293931980
 GameObject:
@@ -1142,7 +1060,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 1
+  m_Text: Start
 --- !u!222 &1789893114
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 
 [System.Serializable]
@@ -60,7 +57,7 @@ public class ItemSpawner : MonoBehaviour
     [SerializeField] bool seeArea = false;
     void OnDrawGizmos()
     {
-        if(seeArea)
+        if (seeArea)
         {
             Gizmos.color = GizmosColor;
             Gizmos.DrawCube(transform.position, transform.localScale);

@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] MovementController movement;
-    [SerializeField] GunController gunController;
+    [SerializeField] Shooter shooter;
     [SerializeField] LaserController laserController;
 
     void Update()
     {
         movement.Move(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            gunController.Shoot();
+            shooter.TryShoot();
         }
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             laserController.Shoot();
         }
