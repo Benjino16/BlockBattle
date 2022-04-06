@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PathfindingGrid : MonoBehaviour
 {
@@ -10,6 +10,11 @@ public class PathfindingGrid : MonoBehaviour
 
     float nodeDiameter;
     int gridSizeX, gridSizeY;
+
+    private void Awake()
+    {
+        CheckForErrors();
+    }
 
     private void Start()
     {
@@ -42,14 +47,14 @@ public class PathfindingGrid : MonoBehaviour
         {
             for (int y = -1; y <= 1; y++)
             {
-                if(x == 0 && y == 0)
+                if (x == 0 && y == 0)
                 {
                     continue;
                 }
                 int checkX = node.x + x;
                 int checkY = node.y + y;
 
-                if(checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
+                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)
                 {
                     neighbours.Add(grid[checkX, checkY]);
                 }
@@ -73,6 +78,15 @@ public class PathfindingGrid : MonoBehaviour
         return grid[x, y];
     }
 
+    void CheckForErrors()
+    {
+        if (unwalkableMask == 0)
+        {
+            Debug.LogWarning("unwalkableMask is not set to a value!");
+        }
+    }
+
+
 
     public List<Node> path;
 
@@ -92,15 +106,15 @@ public class PathfindingGrid : MonoBehaviour
                 {
                     Gizmos.color = Color.red;
                 }
-                if(path != null)
+                if (path != null)
                 {
-                    if(path.Contains(node))
+                    if (path.Contains(node))
                     {
                         Gizmos.color = Color.green;
                     }
                 }
 
-                Gizmos.DrawWireCube(node.worldPosition, Vector2.one * (nodeDiameter - .1f));
+                Gizmos.DrawCube(node.worldPosition, Vector2.one * (nodeDiameter - .1f));
             }
         }
     }

@@ -16,7 +16,7 @@ TagManager:
   - UI
   - Collider
   - 
-  - 
+  - Trigger
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Weapon
+    uniqueID: 136717261
     locked: 0
   - name: Front
     uniqueID: 3839245363

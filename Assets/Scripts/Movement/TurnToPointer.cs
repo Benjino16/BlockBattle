@@ -3,6 +3,11 @@ using UnityEngine;
 public class TurnToPointer : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
         if (rb == null)

@@ -31,11 +31,15 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void Damage(float value, GameObject attacker, Vector2? direction = null)
+    public void Damage(float damage, GameObject attacker, Vector2? direction = null)
     {
         if (!immortal)
         {
-            shield -= value;
+            if(GetComponent<DamageDisplay>() != null)
+            {
+                GetComponent<DamageDisplay>().DisplayDamage(damage);
+            }
+            shield -= damage;
             if (shield < 0)
             {
                 health += shield;

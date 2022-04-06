@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,16 +5,9 @@ public class Pathfinder : MonoBehaviour
 {
     [SerializeField] PathfindingGrid grid;
 
-    [SerializeField] Transform seeker, target;
-
-
-    private void Update()
+    public List<Vector2> FindPath(Vector2 startPos, Vector2 targetPos)
     {
-        FindPath(seeker.position, target.position);
-
-    }
-    void FindPath(Vector2 startPos, Vector2 targetPos)
-    {
+        List<Vector2> path = new List<Vector2>();
         Debug.Log("Searching path from " + startPos + " to " + targetPos);
 
         Node startNode = grid.NodeFromWorldPoint(startPos);
@@ -26,12 +18,12 @@ public class Pathfinder : MonoBehaviour
 
         openSet.Add(startNode);
 
-        while(openSet.Count > 0)
+        while (openSet.Count > 0)
         {
             Node currentNode = openSet[0];
             for (int i = 1; i < openSet.Count; i++)
             {
-                if(openSet[i].fCost < currentNode.fCost || openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost )
+                if (openSet[i].fCost < currentNode.fCost || openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost)
                 {
                     currentNode = openSet[i];
                 }
@@ -41,16 +33,18 @@ public class Pathfinder : MonoBehaviour
             closeSet.Add(currentNode);
 
             //Called when a path has been found
-            if(currentNode == targetNode)
+            if (currentNode == targetNode)
             {
                 Debug.Log("Found path");
-                RetracePath(startNode, targetNode);
-                return;
+                foreach (var item in RetracePath(startNode, targetNode))
+                {
+                    path.Add(item.worldPosition);
+                }
             }
 
             foreach (Node neighbour in grid.GetNeighbours(currentNode))
             {
-                if(!neighbour.walkable || closeSet.Contains(neighbour))
+                if (!neighbour.walkable || closeSet.Contains(neighbour))
                 {
                     continue;
                 }
@@ -63,21 +57,24 @@ public class Pathfinder : MonoBehaviour
 
                     neighbour.parent = currentNode;
 
-                    if(!openSet.Contains(neighbour))
+                    if (!openSet.Contains(neighbour))
                     {
                         openSet.Add(neighbour);
                     }
                 }
             }
         }
+
+        return null;
     }
 
-    void RetracePath(Node startNode, Node endNode)
+    private List<Node> RetracePath(Node startNode, Node endNode)
     {
         List<Node> path = new List<Node>();
         Node currentNode = endNode;
+        path.Add(startNode);
 
-        while(currentNode != startNode)
+        while (currentNode != startNode)
         {
             path.Add(currentNode);
             currentNode = currentNode.parent;
@@ -87,6 +84,7 @@ public class Pathfinder : MonoBehaviour
 
         grid.path = path;
 
+        return path;
     }
 
 
@@ -95,7 +93,7 @@ public class Pathfinder : MonoBehaviour
         int distanceX = Mathf.Abs(nodeA.x - nodeB.x);
         int distanceY = Mathf.Abs(nodeA.y - nodeB.y);
 
-        if(distanceX > distanceY)
+        if (distanceX > distanceY)
         {
             return (14 * distanceY) + (10 * (distanceX - distanceY));
         }

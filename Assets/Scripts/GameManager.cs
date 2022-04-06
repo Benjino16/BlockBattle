@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
             if (bestLevel > maxLevel)
             {
                 bestLevel = maxLevel;
+
                 //All levels complete
                 Debug.Log("Completed the game");
             }
